@@ -56,7 +56,7 @@ $(document).ready(function() {
     $("#fh5co-main").empty();
 
     // Append category name
-    $("#fh5co-main").append('<div><h2>' + selectedCategory +  '</h2></div>');
+    $("#fh5co-main").append('<div class="category-narrow-content"><h2 class="fh5co-heading">' + selectedCategory +  '</h2></div>');
 
     // Append articles data
     $.each(articles[selectedCategory], function(index, article) {

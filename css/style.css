@@ -611,6 +611,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   transform: translate3d(0, 0, 0);
 }
 
+.category-narrow-content {
+  padding: 5em 0 0 1em;
+}
+
 .fh5co-lead {
   font-size: 18px;
   line-height: 1.5;

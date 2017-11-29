@@ -4,7 +4,6 @@ $(document).ready(function() {
   var articles = {} // { Category: [article] }
   var sources = {}
   var articlesRead = []  // [article]
-  // var biasAverage = 0.0
   var selectedCategory = "" // Current selected category
   var selectedArticleIndex = -1  // Current selected article index in articles
   
@@ -33,15 +32,12 @@ $(document).ready(function() {
     success: function(user) {
       articlesRead = user.articles_read
 
-      // recent-articles
-
-
       console.log(articlesRead)
 
       // Display 10 recent articles
       $.each(articlesRead.slice(0, 16), function(index, article) {
 
-        $("#recent-articles").append(
+        $("#fh5co-main").append(
           '<a class="article" href="' + article.article.link + '" target="_blank">' +
             '<div class="col-md-3 col-sm-6 col-padding">' +
               '<div class="blog-entry">' +
@@ -55,10 +51,7 @@ $(document).ready(function() {
             '</div>' +
           '</a>'
         );
-
       });
-      // biasAverage = calcuateBiasAverage(articlesRead, sources)
-      // console.log(biasAverage)
     }
   }),
 
@@ -112,34 +105,12 @@ $(document).ready(function() {
     var readArticle = {}
     readArticle["date"] = "abc";
     readArticle["article"] = selectedArticle
+
     console.log(readArticle)
-
     articlesRead.push(readArticle)
-
     console.log(articlesRead)
-
-    // console.log(calcuateBiasAverage(articlesRead, sources))
-    // console.log(articlesRead)
-    // console.log(calcuateBiasAverage(articlesRead, sources))
   });
 
 });
-
-// // Helper method to calcuate bias average
-// function calcuateBiasAverage(articlesRead, sources) {
-
-//   var sum = 0;
-
-//   if (articlesRead.length > 0) {
-//     articlesRead.forEach(function(article, index) {
-//       sum += sources[article.source]
-//     });
-//     return (sum / articlesRead.length);
-//   }
-
-//   return sum
-// }
-
-
 
 

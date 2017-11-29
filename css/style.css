@@ -167,7 +167,7 @@ figure figcaption {
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-#fh5co-aside #fh5co-main-menu ul li a:after {
+/* #fh5co-aside #fh5co-main-menu ul li a:after {
   content: "";
   position: absolute;
   height: 2px;
@@ -186,7 +186,7 @@ figure figcaption {
   -ms-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+} */
 #fh5co-aside #fh5co-main-menu ul li a:hover {
   text-decoration: none;
   color: black;

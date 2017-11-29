@@ -47,18 +47,6 @@ $(document).ready(function() {
   })
 
 
-//   <!-- <div class="col-md-3 col-sm-6 col-padding">
-//   <div class="blog-entry">
-//     <a href="#" class="blog-img"><img src="images/img-1.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-//     <div class="desc">
-//       <h3><a href="#">Inspirational Website</a></h3>
-//       <span><small>by Admin </small> / <small> Web Design </small> / <small> <i class="icon-comment"></i> 14</small></span>
-//       <p>Design must be functional and functionality must be translated into visual aesthetics</p>
-//       <a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
-//     </div>
-//   </div>
-// </div> -->
-
   $(".category-nav").click(function(event) {
 
     // console.log("HII")
@@ -70,45 +58,33 @@ $(document).ready(function() {
     $("#fh5co-main").empty();
 
     // Append category name
-    $("#fh5co-main").append('<div><h3>' + selectedCategory +  '</h3></div>');
+    $("#fh5co-main").append('<div><h2>' + selectedCategory +  '</h2></div>');
 
     // Append articles data
     $.each(articles[selectedCategory], function(index, article) {
       $("#fh5co-main").append(
-        '<a class="article" href="' + article.url + '" target="_blank">' +
-          '<div class="col-md-3 col-sm-6 col-padding" id="' + index + '">' +
+        '<a class="article" href="' + article.link + '" target="_blank">' +
+          '<div class="col-md-3 col-sm-6 col-padding">' +
             '<div class="blog-entry">' +
-              '<a href="' + article.link + '" target="_blank"' + ' id="' + index + '"' + ' class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></a>' +
-              '<div class="desc">' +
+            '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
+            '<div class="desc">' +
                 '<h3>' + article.title + '</h3>' +
-                // '<p>' + article.source + '</p>' +
-                '<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>' +
+                '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
               '</div>' +
             '</div>' +
           '</div>' +
-        '</a>'           
-
-        // '<a class="article" href="' + article.url + '" target="_blank">' +
-        //   '<div class="row">' +   
-        //       '<p>' + article.title + '</p>' + 
-        //       '<p>' + article.source + '</p>' +
-        //       '<p>' + article.content + '</p>' +
-        //       '<p>' + article.date + '</p>' +
-        //       '<img src="' + article.imageURL + '" width="200">' +
-        //   '</div>' +
-        // '</a>'
-
+        '</a>'
       );
     });
   });
-  // Index of clicked article is equivalent to the index of the <a> tag child under #articles-container
-  $("#fh5co-main").on("click", "a", function(event) {
 
-    console.log("HIIIII")
+
+  // Index of clicked article is equivalent to the index of the <a> tag child under #articles-container
+  $("#fh5co-main").on("click", "a", function() {
     selectedArticleIndex = $(this).index() - 1 // Array starts at 0
-    console.log($(selectedArticleIndex))
-    // selectedArticle = articles[selectedCategory][selectedArticleIndex]
-    // articlesRead.push(selectedArticle)
+    console.log(selectedArticleIndex)
+    selectedArticle = articles[selectedCategory][selectedArticleIndex]
+    articlesRead.push(selectedArticle)
     // console.log(articlesRead)
     // console.log(calcuateBiasAverage(articlesRead, sources))
   });

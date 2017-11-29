@@ -4,7 +4,7 @@ $(document).ready(function() {
   var articles = {} // { Category: [article] }
   var sources = {}
   var articlesRead = []  // [article]
-  var biasAverage = 0.0
+  // var biasAverage = 0.0
   var selectedCategory = "" // Current selected category
   var selectedArticleIndex = -1  // Current selected article index in articles
   
@@ -31,8 +31,10 @@ $(document).ready(function() {
     type: 'get',
     cache: 'true',
     success: function(user) {
-      biasAverage = user.biasAverage
-      articlesRead = user.articlesRead
+      articlesRead = user.articles_read
+      console.log(articlesRead)
+      // biasAverage = calcuateBiasAverage(articlesRead, sources)
+      // console.log(biasAverage)
     }
   }),
 
@@ -82,27 +84,38 @@ $(document).ready(function() {
     selectedArticleIndex = $(this).index() - 1 // Array starts at 0
     console.log(selectedArticleIndex)
     selectedArticle = articles[selectedCategory][selectedArticleIndex]
-    articlesRead.push(selectedArticle)
+
+    var readArticle = {}
+    readArticle["date"] = "abc";
+    readArticle["article"] = selectedArticle
+    console.log(readArticle)
+
+
+    articlesRead.push(readArticle)
+
+    console.log(articlesRead)
+
+    // console.log(calcuateBiasAverage(articlesRead, sources))
     // console.log(articlesRead)
     // console.log(calcuateBiasAverage(articlesRead, sources))
   });
 
 });
 
-// Helper method to calcuate bias average
-function calcuateBiasAverage(articlesRead, sources) {
+// // Helper method to calcuate bias average
+// function calcuateBiasAverage(articlesRead, sources) {
 
-  var sum = 0;
+//   var sum = 0;
 
-  if (articlesRead.length > 0) {
-    articlesRead.forEach(function(article, index) {
-      sum += sources[article.source]
-    });
-    return (sum / articlesRead.length);
-  }
+//   if (articlesRead.length > 0) {
+//     articlesRead.forEach(function(article, index) {
+//       sum += sources[article.source]
+//     });
+//     return (sum / articlesRead.length);
+//   }
 
-  return sum
-}
+//   return sum
+// }
 
 
 

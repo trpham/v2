@@ -49,8 +49,6 @@ $(document).ready(function() {
 
   $(".category-nav").click(function(event) {
 
-    // console.log("HII")
-
     // Get the category
     selectedCategory = $(event.target).text();
 
@@ -69,6 +67,7 @@ $(document).ready(function() {
             '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
             '<div class="desc">' +
                 '<h3>' + article.title + '</h3>' +
+                '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
                 '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
               '</div>' +
             '</div>' +
@@ -77,7 +76,6 @@ $(document).ready(function() {
       );
     });
   });
-
 
   // Index of clicked article is equivalent to the index of the <a> tag child under #articles-container
   $("#fh5co-main").on("click", "a", function() {

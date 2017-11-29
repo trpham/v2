@@ -32,7 +32,31 @@ $(document).ready(function() {
     cache: 'true',
     success: function(user) {
       articlesRead = user.articles_read
+
+      // recent-articles
+
+
       console.log(articlesRead)
+
+      // Display 10 recent articles
+      $.each(articlesRead.slice(0, 16), function(index, article) {
+
+        $("#recent-articles").append(
+          '<a class="article" href="' + article.article.link + '" target="_blank">' +
+            '<div class="col-md-3 col-sm-6 col-padding">' +
+              '<div class="blog-entry">' +
+              '<div class="blog-img"><img src="' + article.article.image + '"' + ' class="img-responsive"></div>' +
+              '<div class="desc">' +
+                  '<h3>' + article.article.title + '</h3>' +
+                  '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
+                  '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</a>'
+        );
+
+      });
       // biasAverage = calcuateBiasAverage(articlesRead, sources)
       // console.log(biasAverage)
     }
@@ -89,7 +113,6 @@ $(document).ready(function() {
     readArticle["date"] = "abc";
     readArticle["article"] = selectedArticle
     console.log(readArticle)
-
 
     articlesRead.push(readArticle)
 
